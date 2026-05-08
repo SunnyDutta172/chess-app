@@ -1,0 +1,76 @@
+.recent-games {
+  background: #312e2b;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.recent-games.loading {
+  color: #888;
+  font-size: 14px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.no-games {
+  color: #666;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.game-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #262421;
+  border-left: 3px solid transparent;
+}
+
+.game-row.win  { border-left-color: #7fa650; }
+.game-row.loss { border-left-color: #e05252; }
+.game-row.draw { border-left-color: #888; }
+
+.game-result-badge {
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 40px;
+  text-align: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.win  .game-result-badge { background: #2a4a1e; color: #7fa650; }
+.loss .game-result-badge { background: #4a1e1e; color: #e05252; }
+.draw .game-result-badge { background: #3a3835; color: #888; }
+
+.game-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.game-opponent { font-size: 13px; font-weight: 600; color: white; }
+.game-detail   { font-size: 11px; color: #666; }
+
+.game-elo { font-size: 14px; font-weight: 700; }
+.game-elo.positive { color: #7fa650; }
+.game-elo.negative { color: #e05252; }

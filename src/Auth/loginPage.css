@@ -1,0 +1,204 @@
+/* ── THE PAGE ──────────────────────────────────────────
+   This styles the outer wrapper div (className="page")
+   min-height: 100vh  → at least the full screen height
+   display: flex      → enables flexbox layout
+   justify/align center → centers card horizontally + vertically
+   background: #1a1a1a → very dark grey (Chess.com's bg color)
+*/
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+/* ── LOGO ROW ──────────────────────────────────────────
+   display: flex + align-items: center → puts icon and
+   text side by side, vertically centered
+   gap: 10px → space between the icon and the text
+*/
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* Chess piece icon (green triangle shape) */
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  background-color: #7fa650;
+  /* clip-path cuts the square into a triangle shape */
+  clip-path: polygon(50% 0%, 20% 100%, 80% 100%);
+}
+
+/* ── LOGO TEXT ─────────────────────────────────────────
+   The "Chess" part is white and bold
+   The ".com" span inside gets a different color
+*/
+.logo-text {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+.logo-text span {
+  color: #aaaaaa;  /* ".com" is grey */
+  font-weight: 400;
+}
+
+/* ── CARD ──────────────────────────────────────────────
+   The dark rounded box that holds all the form elements
+   width: 340px     → fixed width like the real Chess.com
+   padding: 28px    → breathing room inside the card
+   border-radius    → rounds the corners
+   border           → subtle dark border around the card
+*/
+.card {
+  width: 340px;
+  background-color: #262421;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #3a3a3a;
+}
+
+/* ── TEXT INPUTS ───────────────────────────────────────
+   width: 100%      → stretches to fill the card
+   background       → slightly lighter than card bg
+   border           → subtle border
+   border-radius    → slightly rounded corners
+   padding          → space inside the input box
+   color: #ddd      → light grey text
+   margin-bottom    → gap between inputs
+   outline: none    → removes the default blue glow on click
+*/
+.text-input {
+  width: 92%;
+  background-color: #302e2b;
+  border: 1px solid #4a4a4a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #dddddd;
+  font-size: 14px;
+  margin-bottom: 10px;
+  outline: none;
+}
+/* Changes border color when the input is focused (clicked) */
+.text-input:focus {
+  border-color: #7fa650;  /* green glow on focus */
+}
+
+/* ── PASSWORD ROW ──────────────────────────────────────
+   display: flex    → puts input + Show button side by side
+   gap: 8px         → space between them
+   align-items      → vertically aligns them
+   Note: the input inside will shrink because of flex
+*/
+.password-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+/* flex: 1 → makes the input take up ALL remaining space
+   leaving just enough room for the Show button */
+.password-row .text-input {
+  flex: 1;
+  margin-bottom: 0;  /* override the 10px from above */
+}
+
+/* ── SHOW/HIDE BUTTON ──────────────────────────────────
+   A small grey button next to the password field
+*/
+.show-btn {
+  background: #3a3a3a;
+  border: none;
+  color: #aaa;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 8px;
+  white-space: wrap;  /* don't wrap to 2 lines */
+}
+
+/* ── OPTIONS ROW (Remember me + Forgot Password) ───────
+   justify-content: space-between → pushes them to edges
+*/
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.remember { color: #888; font-size: 13px; cursor: pointer; }
+.forgot   { color: #7fa650; font-size: 13px; text-decoration: none; }
+
+/* ── LOG IN BUTTON ─────────────────────────────────────
+   width: 100%      → full width of the card
+   background       → Chess.com's green color
+   cursor: pointer  → shows hand cursor on hover
+*/
+.login-btn {
+  width: 100%;
+  background-color: #7fa650;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.login-btn:hover {
+  background-color: #6e9040;  /* slightly darker on hover */
+}
+
+/* ── OR DIVIDER ────────────────────────────────────────
+   Two lines with "OR" text in between
+   The span elements are the lines, p is the text
+*/
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.divider span {
+  flex: 1;           /* each line takes equal space */
+  height: 1px;
+  background: #3a3a3a;
+}
+.divider p { color: #666; font-size: 12px; }
+
+/* ── SOCIAL BUTTONS ────────────────────────────────────
+   margin-bottom: 8px → gap between each social button
+*/
+.social-btn {
+  width: 100%;
+  background-color: #302e2b;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #cccccc;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.social-btn:hover {
+  background-color: #3a3835;
+}
+
+/* ── SIGN UP TEXT ──────────────────────────────────────
+   text-align: center → centered at the bottom
+*/
+.signup {
+  text-align: center;
+  color: #666666;
+  font-size: 13px;
+  margin-top: 14px;
+}
+.signup a { color: #7fa650; }

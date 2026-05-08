@@ -1,0 +1,116 @@
+.friends-list {
+  background: #312e2b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.friend-search {
+  display: flex;
+  gap: 6px;
+}
+
+.friend-search-input {
+  flex: 1;
+  background: #1e1e1e;
+  border: 1px solid #4a4a4a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: white;
+  font-size: 13px;
+  outline: none;
+}
+.friend-search-input:focus { border-color: #7fa650; }
+
+.friend-search-btn {
+  background: #7fa650;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-results {
+  background: #262421;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-result-row, .friend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+}
+
+.friend-avatar {
+  width: 32px; height: 32px;
+  background: #7fa650;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: white;
+  flex-shrink: 0;
+}
+
+.friend-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.friend-name { font-size: 13px; font-weight: 600; color: white; }
+.friend-elo  { font-size: 11px; color: #888; }
+
+.add-btn {
+  background: #7fa650;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.accept-btn {
+  background: #4a7a2a;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.subsection-title {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.no-friends { font-size: 12px; color: #555; font-style: italic; }
+
+.online-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.online-dot.online  { background: #7fa650; }
+.online-dot.offline { background: #4a4a4a; }

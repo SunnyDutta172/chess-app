@@ -1,0 +1,32 @@
+.profile-page {
+  display: flex;
+  min-height: 100vh;
+  background: #262421;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .profile-grid { grid-template-columns: 1fr; }
+}

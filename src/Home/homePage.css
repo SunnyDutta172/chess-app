@@ -1,0 +1,72 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #262421;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+/* welcome banner */
+.welcome-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #312e2b;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.welcome-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.welcome-sub {
+  font-size: 14px;
+  color: #888;
+}
+
+.play-btn {
+  background: #7fa650;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.play-btn:hover { background: #6e9040; }
+
+/* grid layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.left-col  { display: flex; flex-direction: column; gap: 16px; }
+.right-col { display: flex; flex-direction: column; gap: 16px; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

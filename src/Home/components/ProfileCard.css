@@ -1,0 +1,78 @@
+.profile-card {
+  background: #312e2b;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-card.loading {
+  color: #888;
+  font-size: 14px;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.profile-avatar {
+  width: 64px; height: 64px;
+  background: #7fa650;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 700; color: white;
+}
+
+.profile-username {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.profile-elo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #262421;
+  padding: 10px 24px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.elo-number {
+  font-size: 32px;
+  font-weight: 900;
+  color: #f5c518;
+}
+
+.elo-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-number { font-size: 20px; font-weight: 700; }
+.stat-number.green { color: #7fa650; }
+.stat-number.red   { color: #e05252; }
+.stat-number.grey  { color: #888; }
+.stat-label { font-size: 11px; color: #666; }
+
+.win-rate { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.win-rate-bar { width: 100%; height: 6px; background: #4a4a4a; border-radius: 3px; overflow: hidden; }
+.win-rate-fill { height: 100%; background: #7fa650; border-radius: 3px; transition: width 0.5s; }
+.win-rate-text { font-size: 12px; color: #888; text-align: center; }
