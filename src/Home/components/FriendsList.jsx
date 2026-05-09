@@ -1,7 +1,7 @@
 // FriendsList.jsx — shows friends + add friend
 import { useState } from "react"
 import "./FriendsList.css"
-import BASE_URL from "../config"
+import BASE_URL from "../../config"
 
 function FriendsList({ friends, friendRequests, onRefresh }) {
   const [searchQuery, setSearchQuery]   = useState("")
