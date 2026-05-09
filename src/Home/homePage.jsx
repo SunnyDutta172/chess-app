@@ -6,6 +6,7 @@ import Sidebar      from "./components/Sidebar"
 import ProfileCard  from "./components/ProfileCard"
 import RecentGames  from "./components/RecentGames"
 import FriendsList  from "./components/FriendsList"
+import BASE_URL from "../config"
 import "./homePage.css"
 
 function HomePage() {
@@ -23,7 +24,7 @@ function HomePage() {
 
   const fetchProfile = async () => {
     try {
-      const res  = await fetch("http://localhost:5000/api/users/profile", {
+      const res  = await fetch(`${BASE_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       const data = await res.json()
@@ -35,7 +36,7 @@ function HomePage() {
 
   const fetchGames = async () => {
     try {
-      const res  = await fetch("http://localhost:5000/api/games/history", {
+      const res  = await fetch(`${BASE_URL}/api/games/history`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       const data = await res.json()

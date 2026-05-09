@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./signupPage.css";
 import { useNavigate, Link } from "react-router-dom";
+import BASE_URL from "../config"
 
 function SignupPage() {
   const [username, setUsername] = useState("");
@@ -25,7 +26,7 @@ function SignupPage() {
   const handleSignup = async () => {
     if (!validate()) return;
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password })

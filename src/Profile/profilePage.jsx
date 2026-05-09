@@ -3,6 +3,7 @@ import Sidebar     from "../Home/components/Sidebar"
 import ProfileCard from "../Home/components/ProfileCard"
 import RecentGames from "../Home/components/RecentGames"
 import "./profilePage.css"
+import BASE_URL from "../config"
 
 function ProfilePage() {
   const [profile, setProfile] = useState(null)
@@ -17,10 +18,10 @@ function ProfilePage() {
   const fetchData = async () => {
     try {
       const [profileRes, gamesRes] = await Promise.all([
-        fetch("http://localhost:5000/api/users/profile", {
+        fetch(`${BASE_URL}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        fetch("http://localhost:5000/api/games/history", {
+        fetch(`${BASE_URL}/api/games/history`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ])

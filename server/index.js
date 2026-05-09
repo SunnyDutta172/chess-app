@@ -1,4 +1,5 @@
-require("dotenv").config()
+require("dotenv").config({ path: require("path").resolve(__dirname, ".env") })
+
 const express    = require("express")
 const mongoose   = require("mongoose")
 const cors       = require("cors")
@@ -12,11 +13,16 @@ const gameRoutes  = require("./routes/games")
 const app    = express()
 const server = http.createServer(app)
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL  // your Vercel URL — set this later
+]
+
 const io = new Server(server, {
-  cors: { origin: "http://localhost:5173", methods: ["GET", "POST"] }
+  cors: { origin: allowedOrigins, methods: ["GET", "POST"] }
 })
 
-app.use(cors({ origin: "http://localhost:5173" }))
+app.use(cors({ origin: allowedOrigins }))
 app.use(express.json())
 
 app.use("/api/auth",  authRoutes)
@@ -122,13 +128,13 @@ socket.on("joinRoom", ({ roomCode, username, userId }) => {
   })
 })
 mongoose
-    .connect("mongodb+srv://sunnyrizzler123_db_user:cgj8yOvAWF5aHNHE@cluster0.okqfoqy.mongodb.net/chessapp?retryWrites=true&w=majority")
+    .connect(process.env.MONGO_URI)
     .then(() => {
-        console.log(`Connected to MongoDB`);
-        server.listen(5000, () => {
-            console.log(`Server is running on port ${process.env.PORT}`)
+        console.log("✅ Connected to MongoDB")
+        server.listen(process.env.PORT || 5000, () => {
+            console.log(`🚀 Server running on port ${process.env.PORT || 5000}`)
         })
     })
     .catch((err) => {
-        console.log(`MongoDB connection failed`, err.message);
+        console.log("❌ MongoDB connection failed", err.message)
     })

@@ -7,6 +7,7 @@ import ChessClock from "./components/ChessClock"
 import MoveList   from "./components/MoveList"
 import ChatBox    from "./components/ChatBox"
 import "./gamePage.css"
+import BASE_URL from "../config"
 
 function GamePage() {
   const [game, setGame]             = useState(() => new Chess())
@@ -163,7 +164,7 @@ const handleGameEnd = async (result, endReason) => {
     const black = allPlayers.find(p => p.color === "b")
     if (!white || !black) return
 
-    await fetch("http://localhost:5000/api/games/save", {
+    await fetch(`${BASE_URL}/api/games/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

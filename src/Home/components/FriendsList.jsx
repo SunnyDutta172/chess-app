@@ -1,6 +1,7 @@
 // FriendsList.jsx — shows friends + add friend
 import { useState } from "react"
 import "./FriendsList.css"
+import BASE_URL from "../config"
 
 function FriendsList({ friends, friendRequests, onRefresh }) {
   const [searchQuery, setSearchQuery]   = useState("")
@@ -15,7 +16,7 @@ function FriendsList({ friends, friendRequests, onRefresh }) {
     setSearching(true)
     try {
       const res  = await fetch(
-        `http://localhost:5000/api/users/search?username=${searchQuery}`,
+        `${BASE_URL}/api/users/search?username=${searchQuery}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       const data = await res.json()
@@ -29,7 +30,7 @@ function FriendsList({ friends, friendRequests, onRefresh }) {
   // send friend request
   const sendRequest = async (targetUserId) => {
     try {
-      await fetch("http://localhost:5000/api/users/friend-request", {
+      await fetch(`${BASE_URL}/api/users/friend-request`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +49,7 @@ function FriendsList({ friends, friendRequests, onRefresh }) {
   // accept friend request
   const acceptRequest = async (requesterId) => {
     try {
-      await fetch("http://localhost:5000/api/users/accept-friend", {
+      await fetch(`${BASE_URL}/api/users/accept-friend`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
