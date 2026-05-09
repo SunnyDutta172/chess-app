@@ -15,6 +15,21 @@ const gameRoutes  = require("./routes/games")
 
 const app    = express()
 const server = http.createServer(app)
+// catch any unhandled errors and log them
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION:", err.message)
+  console.error(err.stack)
+})
+
+// only load .env in development
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: require("path").resolve(__dirname, ".env") })
+}
+
+console.log("Starting server...")
+console.log("MONGO_URI exists:", !!process.env.MONGO_URI)
+console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET)
+console.log("PORT:", process.env.PORT)
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -131,13 +146,15 @@ socket.on("joinRoom", ({ roomCode, username, userId }) => {
   })
 })
 mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("✅ Connected to MongoDB")
-        server.listen(process.env.PORT || 5000, () => {
-            console.log(`🚀 Server running on port ${process.env.PORT || 5000}`)
-        })
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("✅ Connected to MongoDB")
+    const PORT = process.env.PORT || 5000
+    server.listen(PORT, "0.0.0.0", () => {
+      console.log(`🚀 Server running on port ${PORT}`)
     })
-    .catch((err) => {
-        console.log("❌ MongoDB connection failed", err.message)
-    })
+  })
+  .catch((err) => {
+    console.error("❌ MongoDB connection failed:", err.message)
+    process.exit(1)
+  })
